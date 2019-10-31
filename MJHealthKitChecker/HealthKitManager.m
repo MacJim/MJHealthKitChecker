@@ -11,7 +11,7 @@
 
 @implementation HealthKitManager {
     BOOL _isHealthKitAvailable;
-    BOOL _hasHealthKitPermission;
+    BOOL _hasHealthKitPermissions;
     
     /// A single health store object per app.
     HKHealthStore* _healthStore;
@@ -31,6 +31,8 @@
 - (id)init {
     self = [super init];
     
+    _hasHealthKitPermissions = NO;
+    
     if (self) {
         if ([HKHealthStore isHealthDataAvailable]) {
             _isHealthKitAvailable = YES;
@@ -46,14 +48,13 @@
                                    nil];
             [_healthStore requestAuthorizationToShareTypes:allDataTypes readTypes:allDataTypes completion:^(BOOL success, NSError *error){
                 if (success) {
-                    self->_hasHealthKitPermission = YES;
+                    self->_hasHealthKitPermissions = YES;
                 } else {
-                    self->_hasHealthKitPermission = NO;
+                    self->_hasHealthKitPermissions = NO;
                 }
             }];
         } else {
             _isHealthKitAvailable = NO;
-            _hasHealthKitPermission = NO;
         }
     }
     
@@ -63,7 +64,7 @@
 
 #pragma mark - Is health data available
 - (BOOL)isHealthDataAvailable {
-    return (_isHealthKitAvailable && _hasHealthKitPermission);
+    return (_isHealthKitAvailable && _hasHealthKitPermissions);
 }
 
 @end
