@@ -7,6 +7,8 @@
 //
 
 #import "ViewController.h"
+#import "HealthKitManager.h"
+
 
 @interface ViewController ()
 
@@ -16,7 +18,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [HealthKitManager sharedManager];
 }
 
 

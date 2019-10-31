@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0288A723236B98B700E155D6 /* HealthKitManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0288A722236B98B700E155D6 /* HealthKitManager.m */; };
 		D2E188E3236B83DC00463482 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E188E2236B83DC00463482 /* AppDelegate.m */; };
 		D2E188E6236B83DC00463482 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E188E5236B83DC00463482 /* ViewController.m */; };
 		D2E188E9236B83DC00463482 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E188E7236B83DC00463482 /* Main.storyboard */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0288A721236B98B700E155D6 /* HealthKitManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HealthKitManager.h; sourceTree = "<group>"; };
+		0288A722236B98B700E155D6 /* HealthKitManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HealthKitManager.m; sourceTree = "<group>"; };
 		D2E188DE236B83DC00463482 /* MJHealthKitChecker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJHealthKitChecker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2E188E1236B83DC00463482 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D2E188E2236B83DC00463482 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -68,6 +71,8 @@
 				D2E188E2236B83DC00463482 /* AppDelegate.m */,
 				D2E188E4236B83DC00463482 /* ViewController.h */,
 				D2E188E5236B83DC00463482 /* ViewController.m */,
+				0288A721236B98B700E155D6 /* HealthKitManager.h */,
+				0288A722236B98B700E155D6 /* HealthKitManager.m */,
 				D2E188E7236B83DC00463482 /* Main.storyboard */,
 				D2E188EA236B83DE00463482 /* Assets.xcassets */,
 				D2E188EC236B83DE00463482 /* LaunchScreen.storyboard */,
@@ -162,6 +167,7 @@
 			files = (
 				D2E188E6236B83DC00463482 /* ViewController.m in Sources */,
 				D2E188F1236B83DE00463482 /* main.m in Sources */,
+				0288A723236B98B700E155D6 /* HealthKitManager.m in Sources */,
 				D2E188E3236B83DC00463482 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
