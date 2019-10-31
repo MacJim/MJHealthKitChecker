@@ -13,6 +13,7 @@
 		D2E188EB236B83DE00463482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D2E188EA236B83DE00463482 /* Assets.xcassets */; };
 		D2E188EE236B83DE00463482 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2E188EC236B83DE00463482 /* LaunchScreen.storyboard */; };
 		D2E188F1236B83DE00463482 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D2E188F0236B83DE00463482 /* main.m */; };
+		D2E188FC236B85E800463482 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D2E188FB236B85E800463482 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		D2E188ED236B83DE00463482 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2E188EF236B83DE00463482 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2E188F0236B83DE00463482 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D2E188F7236B84DA00463482 /* MJHealthKitChecker.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MJHealthKitChecker.entitlements; sourceTree = "<group>"; };
+		D2E188FB236B85E800463482 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D2E188FC236B85E800463482 /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +48,7 @@
 			children = (
 				D2E188E0236B83DC00463482 /* MJHealthKitChecker */,
 				D2E188DF236B83DC00463482 /* Products */,
+				D2E188F8236B84DA00463482 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +63,7 @@
 		D2E188E0236B83DC00463482 /* MJHealthKitChecker */ = {
 			isa = PBXGroup;
 			children = (
+				D2E188F7236B84DA00463482 /* MJHealthKitChecker.entitlements */,
 				D2E188E1236B83DC00463482 /* AppDelegate.h */,
 				D2E188E2236B83DC00463482 /* AppDelegate.m */,
 				D2E188E4236B83DC00463482 /* ViewController.h */,
@@ -69,6 +75,14 @@
 				D2E188F0236B83DE00463482 /* main.m */,
 			);
 			path = MJHealthKitChecker;
+			sourceTree = "<group>";
+		};
+		D2E188F8236B84DA00463482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D2E188FB236B85E800463482 /* HealthKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +116,11 @@
 				TargetAttributes = {
 					D2E188DD236B83DC00463482 = {
 						CreatedOnToolsVersion = 10.3;
+						SystemCapabilities = {
+							com.apple.HealthKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -285,6 +304,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MJHealthKitChecker/MJHealthKitChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHTW286997;
 				INFOPLIST_FILE = MJHealthKitChecker/Info.plist;
@@ -302,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MJHealthKitChecker/MJHealthKitChecker.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = CHTW286997;
 				INFOPLIST_FILE = MJHealthKitChecker/Info.plist;
