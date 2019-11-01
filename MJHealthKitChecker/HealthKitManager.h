@@ -21,6 +21,10 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Is health data available
 @property(readonly) BOOL isHealthDataAvailable;
 
+
+#pragma mark - Write data to the Health app
+- (void)addSteps:(NSInteger)steps startDate:(NSDate*)startDate endDate:(NSDate*)endDate withCompletion:(nullable void (^)(NSError* error))completion;
+
 @end
 
 NS_ASSUME_NONNULL_END

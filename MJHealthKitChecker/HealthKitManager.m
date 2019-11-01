@@ -44,6 +44,7 @@
                                    [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierActiveEnergyBurned],
                                    [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceCycling],
                                    [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierDistanceWalkingRunning],
+                                   [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount],
                                    [HKObjectType quantityTypeForIdentifier:HKQuantityTypeIdentifierHeartRate],
                                    nil];
             [_healthStore requestAuthorizationToShareTypes:allDataTypes readTypes:allDataTypes completion:^(BOOL success, NSError *error){
@@ -65,6 +66,32 @@
 #pragma mark - Is health data available
 - (BOOL)isHealthDataAvailable {
     return (_isHealthKitAvailable && _hasHealthKitPermissions);
+}
+
+
+#pragma mark - Write data to the Health app
+- (void)addSteps:(NSInteger)steps startDate:(NSDate*)startDate endDate:(NSDate*)endDate withCompletion:(nullable void (^)(NSError* error))completion {
+//    HKAuthorizationStatus* authorizationStatus = _healthStore authorizationStatusForType:HKObjectType quantityTypeForIdentifier:hkquantity
+    
+    // Quantity type: steps.
+    HKQuantityType* stepsQuantityType = [HKQuantityType quantityTypeForIdentifier:HKQuantityTypeIdentifierStepCount];
+    
+    // Count unit.
+    HKUnit* unit = [HKUnit countUnit];
+    
+    // Quantity object.
+    HKQuantity* quantity = [HKQuantity quantityWithUnit:unit doubleValue:steps];
+    
+    HKQuantitySample* sample = [HKQuantitySample quantitySampleWithType:stepsQuantityType quantity:quantity startDate:startDate endDate:endDate];
+    
+    [_healthStore saveObject:sample withCompletion:^(BOOL success, NSError * _Nullable error) {
+        NSLog(@"Data addition succeeded: %d", success);
+        if (completion) {
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                completion(error);
+            });
+        }
+    }];
 }
 
 @end
