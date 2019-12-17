@@ -23,7 +23,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 #pragma mark - Write data to the Health app
-- (void)addSteps:(NSInteger)steps startDate:(NSDate*)startDate endDate:(NSDate*)endDate withCompletion:(nullable void (^)(NSError* error))completion;
+/// Adds steps only.
+- (void)addSteps:(NSInteger)stepsCount startDate:(NSDate*)startDate endDate:(NSDate*)endDate withCompletion:(nullable void (^)(NSError* error))completion;
+/// Calculates walk distance based on steps count.
+- (void)addStepsWithApproximateWalkDistance:(NSInteger)stepsCount startDate:(NSDate*)startDate endDate:(NSDate*)endDate withCompletion:(nullable void (^)(NSError* error))completion;
 
 @end
 

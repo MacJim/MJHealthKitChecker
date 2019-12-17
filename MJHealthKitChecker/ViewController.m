@@ -30,7 +30,12 @@
     NSDate* currentDate = [NSDate date];
     NSDate* testStartDate = [currentDate dateByAddingTimeInterval:-20];
     NSDate* testEndDate = currentDate;
-    [[HealthKitManager sharedManager] addSteps:stepsCount startDate:testStartDate endDate:testEndDate withCompletion:^(NSError * _Nullable error) {
+//    [[HealthKitManager sharedManager] addSteps:stepsCount startDate:testStartDate endDate:testEndDate withCompletion:^(NSError* _Nullable error) {
+//        if (error) {
+//            NSLog(error.description);
+//        }
+//    }];
+    [[HealthKitManager sharedManager] addStepsWithApproximateWalkDistance:stepsCount startDate:testStartDate endDate:testEndDate withCompletion:^(NSError* _Nullable error) {
         if (error) {
             NSLog(error.description);
         }
